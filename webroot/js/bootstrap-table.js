@@ -979,7 +979,7 @@
         // click to select by column
         this.$body.find('> tr > td').off('click').on('click', function () {
             var $tr = $(this).parent();
-            that.trigger('click-row', that.data[$tr.data('index')], $tr);
+            that.trigger('click-row', that.data[$tr.data('Template.Pages.index')], $tr);
             // if click to select - then trigger the checkbox/radio click
             if (that.options.clickToSelect) {
                 if (that.header.clickToSelects[$tr.children().index($(this))]) {
@@ -989,7 +989,7 @@
             }
         });
         this.$body.find('tr').off('dblclick').on('dblclick', function () {
-            that.trigger('dbl-click-row', that.data[$(this).data('index')], $(this));
+            that.trigger('dbl-click-row', that.data[$(this).data('Template.Pages.index')], $(this));
         });
 
         this.$selectItem = this.$body.find(sprintf('[name="%s"]', this.options.selectItemName));
@@ -1004,7 +1004,7 @@
             var checkAll = that.$selectItem.filter(':enabled').length ===
                     that.$selectItem.filter(':enabled').filter(':checked').length,
                 checked = $(this).prop('checked'),
-                row = that.data[$(this).data('index')];
+                row = that.data[$(this).data('Template.Pages.index')];
 
             that.$selectAll.add(that.$selectAll_).prop('checked', checkAll);
             row[that.header.stateField] = checked;
@@ -1012,7 +1012,7 @@
 
             if (that.options.singleSelect) {
                 that.$selectItem.not(this).each(function () {
-                    that.data[$(this).data('index')][that.header.stateField] = false;
+                    that.data[$(this).data('Template.Pages.index')][that.header.stateField] = false;
                 });
                 that.$selectItem.filter(':checked').not(this).prop('checked', false);
             }
@@ -1038,7 +1038,7 @@
                         func = events[key];
 
                     $td.find(el).off(name).on(name, function (e) {
-                        var index = $tr.data('index'),
+                        var index = $tr.data('Template.Pages.index'),
                             row = that.data[index],
                             value = row[that.header.fields[i]];
 
@@ -1133,7 +1133,7 @@
         var that = this;
 
         this.$selectItem.each(function () {
-            that.data[$(this).data('index')][that.header.stateField] = checked;
+            that.data[$(this).data('Template.Pages.index')][that.header.stateField] = checked;
         });
     };
 
@@ -1310,7 +1310,7 @@
     };
 
     BootstrapTable.prototype.updateRow = function (params) {
-        if (!params.hasOwnProperty('index') || !params.hasOwnProperty('row')) {
+        if (!params.hasOwnProperty('Template.Pages.index') || !params.hasOwnProperty('row')) {
             return;
         }
         $.extend(this.data[params.index], params.row);
