@@ -33,6 +33,7 @@ class CategoriesTable extends Table
         $this->setTable('categories');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+        $this->addBehavior('Timestamp');
     }
 
     /**
@@ -52,16 +53,6 @@ class CategoriesTable extends Table
             ->maxLength('cat_name', 45)
             ->requirePresence('cat_name', 'create')
             ->notEmptyString('cat_name');
-
-        $validator
-            ->dateTime('created_at')
-            ->requirePresence('created_at', 'create')
-            ->notEmptyDateTime('created_at');
-
-        $validator
-            ->dateTime('modified_at')
-            ->requirePresence('modified_at', 'create')
-            ->notEmptyDateTime('modified_at');
 
         return $validator;
     }
