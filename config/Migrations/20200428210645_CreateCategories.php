@@ -18,14 +18,6 @@ class CreateCategories extends AbstractMigration
             'limit' => 45,
             'null' => false,
         ]);
-        $table->addColumn('created_at', 'timestamp', [
-            'default' => null,
-            'null' => false,
-        ]);
-        $table->addColumn('modified_at', 'timestamp', [
-            'default' => null,
-            'null' => false,
-        ]);
         $table->create();
     }
 }
