@@ -18,15 +18,6 @@
                 <th scope="row"><?= __('Category Name :') ?></th>
                 <td><?= h($category->cat_name) ?></td>
             </tr>
-
-            <tr>
-                <th scope="row"><?= __('Created At :') ?></th>
-                <td><?= h($category->created_at) ?></td>
-            </tr>
-            <tr>
-                <th scope="row"><?= __('Modified At :') ?></th>
-                <td><?= h($category->modified_at) ?></td>
-            </tr>
         </table>
         </div>
     </div>
