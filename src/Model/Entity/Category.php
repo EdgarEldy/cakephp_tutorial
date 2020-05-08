@@ -8,8 +8,6 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $cat_name
- * @property \Cake\I18n\FrozenTime $created_at
- * @property \Cake\I18n\FrozenTime $modified_at
  */
 class Category extends Entity
 {
@@ -24,7 +22,5 @@ class Category extends Entity
      */
     protected $_accessible = [
         'cat_name' => true,
-        'created_at' => true,
-        'modified_at' => true,
     ];
 }
