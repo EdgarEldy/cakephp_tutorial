@@ -9,6 +9,8 @@ use Cake\Validation\Validator;
 /**
  * Categories Model
  *
+ * @property &\Cake\ORM\Association\HasMany $Products
+ *
  * @method \App\Model\Entity\Category get($primaryKey, $options = [])
  * @method \App\Model\Entity\Category newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\Category[] newEntities(array $data, array $options = [])
@@ -33,7 +35,10 @@ class CategoriesTable extends Table
         $this->setTable('categories');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
-        $this->addBehavior('Timestamp');
+
+        $this->hasMany('Products', [
+            'foreignKey' => 'category_id',
+        ]);
     }
 
     /**
