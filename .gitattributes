@@ -1,3 +1,5 @@
+* linguist-vendored
+*.php linguist-vendored=false
 # Define the line ending behavior of the different file extensions
 # Set default behavior, in case users don't have core.autocrlf set.
 * text=auto
